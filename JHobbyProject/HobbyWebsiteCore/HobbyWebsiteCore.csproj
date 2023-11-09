@@ -22,4 +22,8 @@
     <Folder Include="Parameters\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HobbyServicesCore\HobbyServiceCore.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -13,4 +13,8 @@
     <Folder Include="Parameters\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HobbyRepositoryCore\HobbyRepositoryCore.csproj" />
+  </ItemGroup>
+
 </Project>
