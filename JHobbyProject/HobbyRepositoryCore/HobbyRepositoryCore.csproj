@@ -10,7 +10,6 @@
     <Folder Include="DtoModels\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Implements\" />
-    <Folder Include="Parameters\" />
   </ItemGroup>
 
 </Project>
