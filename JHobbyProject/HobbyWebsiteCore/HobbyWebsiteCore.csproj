@@ -17,12 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ApiControllers\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Parameters\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\HobbyServicesCore\HobbyServiceCore.csproj" />
   </ItemGroup>
 
