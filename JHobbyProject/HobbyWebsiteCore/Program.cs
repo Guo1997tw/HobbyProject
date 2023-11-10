@@ -25,6 +25,10 @@ namespace HobbyWebsiteCore
             builder.Services.AddDbContext<JHobbyContext>(option => { 
                 option.UseSqlServer(builder.Configuration.GetConnectionString("JHobby")); });
 
+            // Swagger API
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -37,6 +41,13 @@ namespace HobbyWebsiteCore
                 app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
+            }
+
+            // Use Swagger API
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI();
             }
 
             app.UseHttpsRedirection();
