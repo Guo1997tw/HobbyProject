@@ -7,13 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Implements\" />
-    <Folder Include="DtoModels\" />
-    <Folder Include="Parameters\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\HobbyRepositoryCore\HobbyRepositoryCore.csproj" />
   </ItemGroup>
 
