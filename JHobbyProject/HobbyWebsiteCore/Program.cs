@@ -1,3 +1,4 @@
+using HobbyRepositoryCore.Models;
 using HobbyWebsiteCore.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,10 @@ namespace HobbyWebsiteCore
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
+
+            // JHobby connectionString
+            builder.Services.AddDbContext<JHobbyContext>(option => { 
+                option.UseSqlServer(builder.Configuration.GetConnectionString("JHobby")); });
 
             var app = builder.Build();
 
