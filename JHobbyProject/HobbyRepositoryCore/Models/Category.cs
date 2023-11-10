@@ -13,5 +13,5 @@ public partial class Category
 
     public string TypeName { get; set; }
 
-    public virtual ICollection<Activity> Activity { get; set; } = new List<Activity>();
+    public virtual ICollection<Activity> Activities { get; set; } = new List<Activity>();
 }

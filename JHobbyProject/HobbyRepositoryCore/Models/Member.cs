@@ -43,11 +43,11 @@ public partial class Member
 
     public DateTime? LastSignIn { get; set; }
 
-    public virtual ICollection<ActivityUser> ActivityUser { get; set; } = new List<ActivityUser>();
+    public virtual ICollection<ActivityUser> ActivityUsers { get; set; } = new List<ActivityUser>();
 
-    public virtual ICollection<Comment> Comment { get; set; } = new List<Comment>();
+    public virtual ICollection<Comment> Comments { get; set; } = new List<Comment>();
 
-    public virtual ICollection<MsgBoard> MsgBoard { get; set; } = new List<MsgBoard>();
+    public virtual ICollection<MsgBoard> MsgBoards { get; set; } = new List<MsgBoard>();
 
-    public virtual ICollection<Wish> Wish { get; set; } = new List<Wish>();
+    public virtual ICollection<Wish> Wishes { get; set; } = new List<Wish>();
 }

@@ -13,27 +13,29 @@ public partial class JHobbyContext : DbContext
     {
     }
 
-    public virtual DbSet<Activity> Activity { get; set; }
+    public virtual DbSet<Activity> Activities { get; set; }
 
-    public virtual DbSet<ActivityImage> ActivityImage { get; set; }
+    public virtual DbSet<ActivityImage> ActivityImages { get; set; }
 
-    public virtual DbSet<ActivityUser> ActivityUser { get; set; }
+    public virtual DbSet<ActivityUser> ActivityUsers { get; set; }
 
-    public virtual DbSet<Category> Category { get; set; }
+    public virtual DbSet<Category> Categories { get; set; }
 
-    public virtual DbSet<Comment> Comment { get; set; }
+    public virtual DbSet<Comment> Comments { get; set; }
 
-    public virtual DbSet<Member> Member { get; set; }
+    public virtual DbSet<Member> Members { get; set; }
 
-    public virtual DbSet<MsgBoard> MsgBoard { get; set; }
+    public virtual DbSet<MsgBoard> MsgBoards { get; set; }
 
-    public virtual DbSet<Wish> Wish { get; set; }
+    public virtual DbSet<Wish> Wishes { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Activity>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Activity__3214EC27A137FA30");
+
+            entity.ToTable("Activity");
 
             entity.Property(e => e.Id)
                 .HasMaxLength(13)
@@ -74,7 +76,7 @@ public partial class JHobbyContext : DbContext
                 .HasMaxLength(2)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.Category).WithMany(p => p.Activity)
+            entity.HasOne(d => d.Category).WithMany(p => p.Activities)
                 .HasForeignKey(d => d.CategoryId)
                 .HasConstraintName("FK_Activity_Category");
         });
@@ -82,6 +84,8 @@ public partial class JHobbyContext : DbContext
         modelBuilder.Entity<ActivityImage>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Activity__3214EC27C658CCDD");
+
+            entity.ToTable("ActivityImage");
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.ActivityId)
@@ -97,7 +101,7 @@ public partial class JHobbyContext : DbContext
             entity.Property(e => e.IsCover).HasColumnName("isCover");
             entity.Property(e => e.UploadTime).HasColumnType("datetime");
 
-            entity.HasOne(d => d.Activity).WithMany(p => p.ActivityImage)
+            entity.HasOne(d => d.Activity).WithMany(p => p.ActivityImages)
                 .HasForeignKey(d => d.ActivityId)
                 .HasConstraintName("FK_ActivityImage_Activity");
         });
@@ -105,6 +109,8 @@ public partial class JHobbyContext : DbContext
         modelBuilder.Entity<ActivityUser>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Activity__3214EC271CA12E97");
+
+            entity.ToTable("ActivityUser");
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.ActivityId)
@@ -126,11 +132,11 @@ public partial class JHobbyContext : DbContext
                 .HasMaxLength(1)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.Activity).WithMany(p => p.ActivityUser)
+            entity.HasOne(d => d.Activity).WithMany(p => p.ActivityUsers)
                 .HasForeignKey(d => d.ActivityId)
                 .HasConstraintName("FK_ActivityUser_Activity");
 
-            entity.HasOne(d => d.Member).WithMany(p => p.ActivityUser)
+            entity.HasOne(d => d.Member).WithMany(p => p.ActivityUsers)
                 .HasForeignKey(d => d.MemberId)
                 .HasConstraintName("FK_ActivityUser_Member");
         });
@@ -138,6 +144,8 @@ public partial class JHobbyContext : DbContext
         modelBuilder.Entity<Category>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Category__3214EC27710BE2D4");
+
+            entity.ToTable("Category");
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.Name)
@@ -149,6 +157,8 @@ public partial class JHobbyContext : DbContext
         modelBuilder.Entity<Comment>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Comment__3214EC27F8A5A489");
+
+            entity.ToTable("Comment");
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.ActivityId)
@@ -170,11 +180,11 @@ public partial class JHobbyContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("MemberID");
 
-            entity.HasOne(d => d.Activity).WithMany(p => p.Comment)
+            entity.HasOne(d => d.Activity).WithMany(p => p.Comments)
                 .HasForeignKey(d => d.ActivityId)
                 .HasConstraintName("FK_Comment_Activity");
 
-            entity.HasOne(d => d.Member).WithMany(p => p.Comment)
+            entity.HasOne(d => d.Member).WithMany(p => p.Comments)
                 .HasForeignKey(d => d.MemberId)
                 .HasConstraintName("FK_Comment_Member");
         });
@@ -182,6 +192,8 @@ public partial class JHobbyContext : DbContext
         modelBuilder.Entity<Member>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Member__3214EC27FC0CDA80");
+
+            entity.ToTable("Member");
 
             entity.Property(e => e.Id)
                 .HasMaxLength(13)
@@ -226,6 +238,8 @@ public partial class JHobbyContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PK__MsgBoard__3214EC27997DC6D5");
 
+            entity.ToTable("MsgBoard");
+
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.ActivityId)
                 .IsRequired()
@@ -242,7 +256,7 @@ public partial class JHobbyContext : DbContext
                 .HasMaxLength(500);
             entity.Property(e => e.MessageTime).HasColumnType("datetime");
 
-            entity.HasOne(d => d.Member).WithMany(p => p.MsgBoard)
+            entity.HasOne(d => d.Member).WithMany(p => p.MsgBoards)
                 .HasForeignKey(d => d.MemberId)
                 .HasConstraintName("FK_MsgBoard_Member");
         });
@@ -250,6 +264,8 @@ public partial class JHobbyContext : DbContext
         modelBuilder.Entity<Wish>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Wish__3214EC279CAA0E2B");
+
+            entity.ToTable("Wish");
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.ActivityId)
@@ -264,11 +280,11 @@ public partial class JHobbyContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("MemberID");
 
-            entity.HasOne(d => d.Activity).WithMany(p => p.Wish)
+            entity.HasOne(d => d.Activity).WithMany(p => p.Wishes)
                 .HasForeignKey(d => d.ActivityId)
                 .HasConstraintName("FK_Wish_Activity");
 
-            entity.HasOne(d => d.Member).WithMany(p => p.Wish)
+            entity.HasOne(d => d.Member).WithMany(p => p.Wishes)
                 .HasForeignKey(d => d.MemberId)
                 .HasConstraintName("FK_Wish_Member");
         });

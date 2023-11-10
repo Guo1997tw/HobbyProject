@@ -35,13 +35,13 @@ public partial class Activity
 
     public string Payment { get; set; }
 
-    public virtual ICollection<ActivityImage> ActivityImage { get; set; } = new List<ActivityImage>();
+    public virtual ICollection<ActivityImage> ActivityImages { get; set; } = new List<ActivityImage>();
 
-    public virtual ICollection<ActivityUser> ActivityUser { get; set; } = new List<ActivityUser>();
+    public virtual ICollection<ActivityUser> ActivityUsers { get; set; } = new List<ActivityUser>();
 
     public virtual Category Category { get; set; }
 
-    public virtual ICollection<Comment> Comment { get; set; } = new List<Comment>();
+    public virtual ICollection<Comment> Comments { get; set; } = new List<Comment>();
 
-    public virtual ICollection<Wish> Wish { get; set; } = new List<Wish>();
+    public virtual ICollection<Wish> Wishes { get; set; } = new List<Wish>();
 }
