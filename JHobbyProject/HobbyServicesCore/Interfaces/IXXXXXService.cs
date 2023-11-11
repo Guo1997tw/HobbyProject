@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HobbyServiceCore.Parameters
+namespace HobbyServiceCore.Interfaces
 {
-    internal class XXXXXParameter
+    internal interface IXXXXXService
     {
     }
 }

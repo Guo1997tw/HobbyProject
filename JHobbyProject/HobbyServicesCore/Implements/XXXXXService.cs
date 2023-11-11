@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HobbyServiceCore.DtoModels
+namespace HobbyServiceCore.Implements
 {
-    internal class XXXXXDtoModel
+    internal class XXXXXService
     {
     }
 }
