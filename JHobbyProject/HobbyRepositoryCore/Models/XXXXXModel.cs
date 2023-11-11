@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HobbyRepositoryCore.Parameters
+namespace HobbyRepositoryCore.Models
 {
-    internal class XXXXXParameter
+    internal class XXXXXModel
     {
     }
 }
