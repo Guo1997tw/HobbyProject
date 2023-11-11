@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HobbyRepositoryCore.Models
+namespace HobbyRepositoryCore.Interfaces
 {
-    internal class XXXXXModel
+    internal interface IXXXXXRepository
     {
     }
 }

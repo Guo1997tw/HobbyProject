@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HobbyRepositoryCore.Implements
+namespace HobbyRepositoryCore.Models.Dto
 {
-    internal class XXXXXImplement
+    internal class Class1
     {
     }
 }
