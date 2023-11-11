@@ -1,4 +1,4 @@
-﻿namespace HobbyWebsiteCore.ViewModels
+﻿namespace HobbyWebsiteCore.Models.ViewModels
 {
     public class XXXXXViewModel
     {
